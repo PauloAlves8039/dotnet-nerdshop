@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NerdShop.WebApp.Context;
-using System;
+using NerdShop.WebApp.Repositories.Interfaces;
+using NerdShop.WebApp.Repositories;
 
 namespace NerdShop.WebApp
 {
@@ -17,6 +18,9 @@ namespace NerdShop.WebApp
         {
             services.AddDbContext<NerdShopDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
 
             services.AddControllersWithViews();
         }
