@@ -11,8 +11,8 @@ using NerdShop.WebApp.Context;
 namespace NerdShop.WebApp.Migrations
 {
     [DbContext(typeof(NerdShopDbContext))]
-    [Migration("20230702131225_Initial")]
-    partial class Initial
+    [Migration("20230702193215_InsertProducts")]
+    partial class InsertProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

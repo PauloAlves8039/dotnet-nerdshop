@@ -11,7 +11,7 @@ using NerdShop.WebApp.Context;
 namespace NerdShop.WebApp.Migrations
 {
     [DbContext(typeof(NerdShopDbContext))]
-    [Migration("20230702132130_InsertCategories")]
+    [Migration("20230702193048_InsertCategories")]
     partial class InsertCategories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

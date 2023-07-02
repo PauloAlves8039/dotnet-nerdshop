@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NerdShop.WebApp.Repositories.Interfaces;
+using NerdShop.WebApp.ViewModels;
 
 namespace NerdShop.WebApp.Controllers
 {
@@ -14,8 +15,11 @@ namespace NerdShop.WebApp.Controllers
 
         public IActionResult List()
         {
-            var products = _productRepository.Products;
-            return View(products);
+            var productListViewModel = new ProductListViewModel();
+            productListViewModel.Products = _productRepository.Products;
+            productListViewModel.CurrentCategory = "Categoria Atual";
+
+            return View(productListViewModel);
         }
     }
 }
