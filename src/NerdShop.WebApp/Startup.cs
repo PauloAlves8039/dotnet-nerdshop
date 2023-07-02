@@ -2,6 +2,7 @@
 using NerdShop.WebApp.Context;
 using NerdShop.WebApp.Repositories.Interfaces;
 using NerdShop.WebApp.Repositories;
+using NerdShop.WebApp.Models;
 
 namespace NerdShop.WebApp
 {
@@ -21,8 +22,8 @@ namespace NerdShop.WebApp
 
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
-
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(s => ShoppingCart.GetCart(s));
 
             services.AddControllersWithViews();
 
