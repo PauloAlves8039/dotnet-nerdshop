@@ -1,4 +1,8 @@
-﻿namespace NerdShop.WebApp
+﻿using Microsoft.EntityFrameworkCore;
+using NerdShop.WebApp.Context;
+using System;
+
+namespace NerdShop.WebApp
 {
     public class Startup
     {
@@ -11,6 +15,9 @@
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<NerdShopDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllersWithViews();
         }
 

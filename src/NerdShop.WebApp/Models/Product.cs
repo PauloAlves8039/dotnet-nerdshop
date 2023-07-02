@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NerdShop.WebApp.Models
 {
+    [Table("Products")]
     public class Product
     {
         [Key]
