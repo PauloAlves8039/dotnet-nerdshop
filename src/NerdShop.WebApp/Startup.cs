@@ -52,6 +52,11 @@ namespace NerdShop.WebApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                   name: "categoryFilter",
+                   pattern: "Product/{action}/{category?}",
+                   defaults: new { Controller = "Product", action = "List" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

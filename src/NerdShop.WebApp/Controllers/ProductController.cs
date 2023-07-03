@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NerdShop.WebApp.Models;
 using NerdShop.WebApp.Repositories.Interfaces;
 using NerdShop.WebApp.ViewModels;
 
@@ -13,11 +14,28 @@ namespace NerdShop.WebApp.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult List()
+        public IActionResult List(string category)
         {
-            var productListViewModel = new ProductListViewModel();
-            productListViewModel.Products = _productRepository.Products;
-            productListViewModel.CurrentCategory = "Categoria Atual";
+            IEnumerable<Product> products;
+            var currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                products = _productRepository.Products.OrderBy(p => p.ProductId);
+                currentCategory = "Todos os produtos";
+            }
+            else 
+            {
+                products = _productRepository.Products.Where(p => p.Category.CategoryName.Equals(category)).OrderBy(c => c.Name);
+
+                currentCategory = category;
+            }
+
+            var productListViewModel = new ProductListViewModel 
+            {
+                Products = products,
+                CurrentCategory = currentCategory
+            };
 
             return View(productListViewModel);
         }
