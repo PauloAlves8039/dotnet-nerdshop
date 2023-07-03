@@ -39,5 +39,11 @@ namespace NerdShop.WebApp.Controllers
 
             return View(productListViewModel);
         }
+
+        public IActionResult Details(int productId)
+        {
+            var product = _productRepository.Products.FirstOrDefault(p => p.ProductId == productId);
+            return View(product);
+        }
     }
 }

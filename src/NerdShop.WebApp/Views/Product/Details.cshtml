@@ -1,0 +1,25 @@
+﻿@model Product
+
+<div class="container">
+    <div class="col-md-8 card-container">
+        <div class="row">
+            <div class="card card-product">
+                <div class="text-center">
+                    <img src="@Model.ImageUrl" class="img-fluid" alt="">
+                </div>
+                <div class="card-block card-content-body">
+                    <h2 class="card-title card-title-product">@Model.Name</h2>
+                    <p class="btn btn-group align-content-lg-end">
+                        <a asp-controller="Product" asp-action="List"
+                           class="btn card-button-produts">Ver todos os produtos</a>
+                        &nbsp;
+                        <a class="btn card-button-add" id="cartButton" asp-controller="ShoppingCart"
+                            asp-action="AddItemToShoppingCart" asp-route-productId="@Model.ProductId">
+                            Adicionar <span class="title-product-details">@Model.Name</span> ao carrinho
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

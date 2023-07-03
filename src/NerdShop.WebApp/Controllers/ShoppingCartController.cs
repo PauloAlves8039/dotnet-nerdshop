@@ -32,7 +32,7 @@ namespace NerdShop.WebApp.Controllers
 
         public IActionResult AddItemToShoppingCart(int productId) 
         {
-            var selectedProduct = _productRepository.Products.FirstOrDefault(x => x.ProductId == productId);
+            var selectedProduct = _productRepository.Products.FirstOrDefault(p => p.ProductId == productId);
 
             if (selectedProduct != null) 
             {
