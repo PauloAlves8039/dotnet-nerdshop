@@ -20,3 +20,15 @@ body {
 .border-image-product {
     border: 1px solid #DCDCDC;
 }
+
+.icon-color-white {
+    color: #FFFFFF;
+}
+
+.icon-color-red {
+    color: #FF0000;
+}
+
+.link-cart {
+    text-decoration: none;
+}
