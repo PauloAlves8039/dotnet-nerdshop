@@ -23,6 +23,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     @await Component.InvokeAsync("ShoppingCartSummary")
                     <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="List">Produtos</a>
+                    <a class="nav-link text-light" asp-area="" asp-controller="Contact" asp-action="Index">Contato</a>
                     <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                 </div>
             </div>
@@ -34,9 +35,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-dark">
         <div class="container">
-            &copy; 2023 - NerdShop
+            <span class="text-light">&copy; 2023 - NerdShop</span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

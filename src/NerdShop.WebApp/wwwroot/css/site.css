@@ -29,6 +29,18 @@ body {
     color: #FF0000;
 }
 
+.icon-color-blue {
+    color: #0000FF;
+}
+
+.icon-color-green {
+    color: #3CB371;
+}
+
+.icon-color-dark {
+    color: #000000;
+}
+
 .link-cart {
     text-decoration: none;
 }
