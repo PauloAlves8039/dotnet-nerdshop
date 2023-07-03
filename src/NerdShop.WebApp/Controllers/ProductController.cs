@@ -45,5 +45,36 @@ namespace NerdShop.WebApp.Controllers
             var product = _productRepository.Products.FirstOrDefault(p => p.ProductId == productId);
             return View(product);
         }
+
+        public ViewResult Search(string searchString) 
+        {
+            IEnumerable<Product> products;
+            var currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(searchString))
+            {
+                products = _productRepository.Products.OrderBy(p => p.ProductId);
+                currentCategory = "Todos os produtos";
+            }
+            else 
+            {
+                products = _productRepository.Products.Where(p => p.Name.ToLower().Contains(searchString.ToLower()));
+
+                if (products.Any())
+                {
+                    currentCategory = "Produtos";
+                }
+                else 
+                {
+                    currentCategory = "Nenhum produto foi encontrado";
+                }
+            }
+
+            return View("~/Views/Product/List.cshtml", new ProductListViewModel 
+            {
+                Products = products,
+                CurrentCategory = currentCategory
+            });
+        }
     }
 }
