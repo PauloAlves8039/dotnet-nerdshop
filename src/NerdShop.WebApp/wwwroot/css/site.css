@@ -125,3 +125,19 @@ body {
     color: #FFFFFF;
     border: 1px solid #32CD32;
 }
+
+.login-button-success {
+    background-color: #FFF;
+    color: #32CD32;
+    border: 1px solid #32CD32;
+}
+
+.login-button-success:hover {
+    background-color: #32CD32;
+    color: #FFF;
+    border: 1px solid #32CD32;
+}
+
+/*.login-icon {
+    margin-left: 85px;
+}*/

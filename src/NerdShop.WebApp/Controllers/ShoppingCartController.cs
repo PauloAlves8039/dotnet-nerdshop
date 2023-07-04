@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NerdShop.WebApp.Models;
 using NerdShop.WebApp.Repositories.Interfaces;
 using NerdShop.WebApp.ViewModels;
@@ -30,6 +31,7 @@ namespace NerdShop.WebApp.Controllers
             return View(shoppingCartViewModel);
         }
 
+        [Authorize]
         public IActionResult AddItemToShoppingCart(int productId) 
         {
             var selectedProduct = _productRepository.Products.FirstOrDefault(p => p.ProductId == productId);
@@ -42,6 +44,7 @@ namespace NerdShop.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public IActionResult RemoveItemFromShoppingCart(int productId) 
         {
             var selectedProduct = _productRepository.Products.FirstOrDefault(x => x.ProductId == productId);

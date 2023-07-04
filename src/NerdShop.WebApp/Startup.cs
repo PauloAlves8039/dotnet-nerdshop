@@ -3,6 +3,8 @@ using NerdShop.WebApp.Context;
 using NerdShop.WebApp.Repositories.Interfaces;
 using NerdShop.WebApp.Repositories;
 using NerdShop.WebApp.Models;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace NerdShop.WebApp
 {
@@ -19,6 +21,10 @@ namespace NerdShop.WebApp
         {
             services.AddDbContext<NerdShopDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+             .AddEntityFrameworkStores<NerdShopDbContext>()
+             .AddDefaultTokenProviders();
 
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
@@ -49,6 +55,7 @@ namespace NerdShop.WebApp
             app.UseStaticFiles();
             app.UseRouting();
             app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NerdShop.WebApp.Models;
 using NerdShop.WebApp.Repositories.Interfaces;
 
@@ -15,6 +16,8 @@ namespace NerdShop.WebApp.Controllers
             _shoppingCart = shoppingCart;
         }
 
+        [Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult Checkout()
         {
