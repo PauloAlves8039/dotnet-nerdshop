@@ -90,3 +90,13 @@ body {
     color: #FFFFFF;
     border: 1px solid #696969;
 }
+
+.title-order {
+    font-size: 22px;
+    font-weight: 500;
+    color: #00BFFF;
+}
+
+.title-icon-order {
+    color: #00BFFF;
+}
