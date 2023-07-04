@@ -16,7 +16,7 @@ namespace NerdShop.WebApp.Controllers
             _shoppingCart = shoppingCart;
         }
 
-        [Authorize]
+        
         [Authorize]
         [HttpGet]
         public IActionResult Checkout()
@@ -24,6 +24,7 @@ namespace NerdShop.WebApp.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Checkout(Order order)
         {

@@ -4,7 +4,7 @@ using NerdShop.WebApp.Repositories.Interfaces;
 using NerdShop.WebApp.Repositories;
 using NerdShop.WebApp.Models;
 using Microsoft.AspNetCore.Identity;
-using System;
+using NerdShop.WebApp.Services;
 
 namespace NerdShop.WebApp
 {
@@ -29,6 +29,16 @@ namespace NerdShop.WebApp
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin",
+                    policy =>
+                    {
+                        policy.RequireRole("Admin");
+                    });
+            });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(s => ShoppingCart.GetCart(s));
@@ -39,7 +49,7 @@ namespace NerdShop.WebApp
             services.AddSession();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ISeedUserRoleInitial seedUserRoleInitial)
         {
             if (env.IsDevelopment())
             {
@@ -54,12 +64,18 @@ namespace NerdShop.WebApp
 
             app.UseStaticFiles();
             app.UseRouting();
+            seedUserRoleInitial.SeedRoles();
+            seedUserRoleInitial.SeedUsers();
             app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                      name: "areas",
+                      pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                    name: "categoryFilter",
                    pattern: "Product/{action}/{category?}",
