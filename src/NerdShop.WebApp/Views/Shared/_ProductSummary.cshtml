@@ -4,18 +4,22 @@
     &nbsp;
     <div class="border-image-product">
         <p><img src="@Model.ImageUrl" class="img-fluid" /></p>
-        <h3>Preço: @Model.Price.ToString("c")</h3>
-        <h4>
-            <a asp-controller="Product" asp-action="Details" asp-route-productId="@Model.ProductId">@Model.Name</a>
-        </h4>
-        <p @Model.Description></p>
-        <div>
-            <p class="button">
-                <a class="btn btn-primary" id="cartButton" asp-controller="ShoppingCart"
-                   asp-action="AddItemToShoppingCart" asp-route-productId="@Model.ProductId">
-                   incluir no Carrinho
+        <div class="card-content-body">
+            <h3>Preço: @Model.Price.ToString("c")</h3>
+            <h4>
+                <a asp-controller="Product" asp-action="Details" asp-route-productId="@Model.ProductId" class="link-cart icon-color-blue">
+                    @Model.Name
                 </a>
-            </p>
+            </h4>
+            <p @Model.Description></p>
+            <div>
+                <p class="button">
+                    <a class="btn card-button-add" id="cartButton" asp-controller="ShoppingCart"
+                       asp-action="AddItemToShoppingCart" asp-route-productId="@Model.ProductId">
+                       incluir no Carrinho
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

@@ -2,8 +2,9 @@
 
 <div class="Container">
     <div class="row checkoutForm">
-        <div>
-            <i class="fa fa-shopping-cart title-icon-order" aria-hidden="true">&nbsp; <span class="title-order">Seu carrinho de compras</span></i>
+        <div class="col-md-4">
+            <i class="fa fa-shopping-cart fa-2x icon-color-blue" aria-hidden="true"></i>
+            <span class="title-order">Seu carrinho de compras</span>
         </div>
         <table class="table table-bordered table-striped">
             <thead>
@@ -43,9 +44,9 @@
         </table>
         <div class="text-right">
             <div class="btn-group">
-                <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Encerrar Pedido</a>
+                <a class="btn cart-button-success" asp-controller="Order" asp-action="Checkout">Encerrar Pedido</a>
                 &nbsp;&nbsp;
-                <a class="btn btn-primary" asp-controller="Product" asp-action="List">Continuar Comprando</a>
+                <a class="btn cart-button-info" asp-controller="Product" asp-action="List">Continuar Comprando</a>
             </div>
         </div>
         <br />
