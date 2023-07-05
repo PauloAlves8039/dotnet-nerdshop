@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NerdShop.WebApp.Context;
 using NerdShop.WebApp.Models;
+using ReflectionIT.Mvc.Paging;
 
 namespace NerdShop.WebApp.Areas.Admin.Controllers
 {
@@ -18,10 +19,19 @@ namespace NerdShop.WebApp.Areas.Admin.Controllers
             _nerdShopDbContext = nerdShopDbContext;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Name")
         {
-            var nerdShopDbContext = _nerdShopDbContext.Products.Include(p => p.Category);
-            return View(await nerdShopDbContext.ToListAsync());
+            var result = _nerdShopDbContext.Products.Include(p => p.Category).AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                result = result.Where(p => p.Name.Contains(filter));
+            }
+
+            var model = await PagingList.CreateAsync(result, 5, pageindex, sort, "Name");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+            return View(model);
+
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -58,7 +68,7 @@ namespace NerdShop.WebApp.Areas.Admin.Controllers
                 await _nerdShopDbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_nerdShopDbContext.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(_nerdShopDbContext.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -74,7 +84,7 @@ namespace NerdShop.WebApp.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_nerdShopDbContext.Categories, "CategoryId", "CategoryName", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(_nerdShopDbContext.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 

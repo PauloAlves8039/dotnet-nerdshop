@@ -11,12 +11,12 @@ namespace NerdShop.WebApp.Models
         public int ProductId { get; set; }
 
         [Required(ErrorMessage = "O nome do produto deve ser informado")]
-        [Display(Name = "Nome do Produto")]
+        [Display(Name = "Nome")]
         [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2} caracteres")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "O descrição do produto deve ser informada")]
-        [Display(Name = "Descrição do Produto")]
+        [Display(Name = "Descrição")]
         [MinLength(20, ErrorMessage = "Descrição deve ter no mínimo {1} caracteres")]
         [MaxLength(200, ErrorMessage = "Descrição pode exceder {1} caracteres")]
         public string Description { get; set; }
@@ -31,13 +31,16 @@ namespace NerdShop.WebApp.Models
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
         public string ImageUrl { get; set; }
 
-        [Display(Name = "Produto Preferido?")]
+        [Display(Name = "Preferido?")]
         public bool IsFavoriteProduct { get; set; }
 
-        [Display(Name = "Estoque")]
+        [Display(Name = "Estoque?")]
         public bool InStock { get; set; }
 
+        [Display(Name = "Categorias")]
         public int CategoryId { get; set; }
+
+        [Display(Name = "Categoria")]
         public virtual Category Category { get; set; }
     }
 }

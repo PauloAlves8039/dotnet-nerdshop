@@ -5,6 +5,7 @@ using NerdShop.WebApp.Repositories;
 using NerdShop.WebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using NerdShop.WebApp.Services;
+using ReflectionIT.Mvc.Paging;
 
 namespace NerdShop.WebApp
 {
@@ -44,6 +45,12 @@ namespace NerdShop.WebApp
             services.AddScoped(s => ShoppingCart.GetCart(s));
 
             services.AddControllersWithViews();
+
+            services.AddPaging(options =>
+            {
+                options.ViewName = "Bootstrap4";
+                options.PageParameterName = "pageindex";
+            });
 
             services.AddMemoryCache();
             services.AddSession();

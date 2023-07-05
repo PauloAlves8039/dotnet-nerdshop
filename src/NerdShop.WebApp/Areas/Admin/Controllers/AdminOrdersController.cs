@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NerdShop.WebApp.Context;
 using NerdShop.WebApp.Models;
-using System.Data;
+using ReflectionIT.Mvc.Paging;
 
 namespace NerdShop.WebApp.Areas.Admin.Controllers
 {
@@ -18,9 +18,19 @@ namespace NerdShop.WebApp.Areas.Admin.Controllers
             _nerdShopDbContext = nerdShopDbContext;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Name")
         {
-              return View(await _nerdShopDbContext.Orders.ToListAsync());
+            var result = _nerdShopDbContext.Orders.AsNoTracking().AsQueryable();
+            
+            if (!string.IsNullOrWhiteSpace(filter)) 
+            {
+                result = result.Where(o => o.Name.Contains(filter));
+            }
+
+            var model = await PagingList.CreateAsync(result, 5, pageindex, sort, "Name");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+
+            return View(model);
         }
 
         public async Task<IActionResult> Details(int? id)

@@ -1,10 +1,23 @@
-﻿@model IEnumerable<NerdShop.WebApp.Models.Product>
+﻿@model ReflectionIT.Mvc.Paging.PagingList<NerdShop.WebApp.Models.Product>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Produtos</h1>
+
+<form method="get" class="form-inline">
+
+    <input name="filter" class="form-control" placeholder="filtro"
+           value="@Model.RouteValue["Filter"]" />
+
+    <button type="submit" class="btn btn-info"> Pesquisar</button>
+</form>
+
+Total de Produtos : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
 
 <p>
     <a asp-action="Create">Criar novo</a>
@@ -22,9 +35,6 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.IsFavoriteProduct)
             </th>
             <th>
@@ -33,7 +43,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Category)
             </th>
-            <th></th>
+            <th>
+                Ações
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -47,9 +59,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsFavoriteProduct)
