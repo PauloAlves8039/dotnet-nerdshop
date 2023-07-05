@@ -138,6 +138,18 @@ body {
     border: 1px solid #32CD32;
 }
 
-/*.login-icon {
-    margin-left: 85px;
-}*/
+.table-title-font {
+    font-size: 13px;
+}
+
+.table-content-font {
+    font-size: 13px;
+}
+
+.footer-layout {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 60px; 
+    line-height: 60px;
+}

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar</h1>
+<h1 class="title-home">Criar</h1>
 
 <h4>Pedido</h4>
 <hr />
@@ -67,14 +67,15 @@
                 <input asp-for="OrderDeliveredAt" class="form-control" />
                 <span asp-validation-for="OrderDeliveredAt" class="text-danger"></span>
             </div>
+            &nbsp;
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn cart-button-info" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Retornar a lista de Pedidos</a>
+    <a asp-action="Index" class="link-cart">Retornar a lista de Pedidos</a>
 </div>
 

@@ -67,12 +67,12 @@ namespace NerdShop.WebApp.Models
 
         [Display(Name = "Data do Pedido")]
         [DataType(DataType.Text)]
-        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime OrderSent { get; set; }
 
-        [Display(Name = "Data Envio Pedido")]
+        [Display(Name = "Envio do Pedido")]
         [DataType(DataType.Text)]
-        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? OrderDeliveredAt { get; set; }
 
         public List<OrderDetail> OrderItems { get; set; }

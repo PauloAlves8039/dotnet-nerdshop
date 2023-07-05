@@ -13,6 +13,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    NerdShop
+                </a>
+                &nbsp;
                 <a class="navbar-brand" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
                 <div class="navbar-collapse collapse d-sm-inline-flex">
                     <a class="nav-link text-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Produtos</a>
@@ -29,7 +33,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-dark">
+    <footer class="border-top footer text-muted bg-dark footer-layout">
         <div class="container">
             <span class="text-light">&copy; 2023 - NerdShop</span>
         </div>

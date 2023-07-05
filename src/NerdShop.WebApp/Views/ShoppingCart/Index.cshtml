@@ -9,19 +9,19 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Quantidade</th>
                     <th>Produto</th>
+                    <th>Quantidade</th>
                     <th class="text-right">Preço</th>
                     <th class="text-right">SubTotal</th>
-                    <th></th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach(var item in Model.ShoppingCart.ShoppingCartItems)
                 {
                     <tr>
-                        <td class="text-center">@item.Quantity</td>
                         <td class="text-left">@item.Product.Name</td>
+                        <td class="text-center">@item.Quantity</td>
                         <td class="text-right">@item.Product.Price.ToString("c")</td>
                         <td class="text-right">@((item.Quantity * item.Product.Price).ToString("c"))</td>
                         <td class="text-center">
@@ -35,8 +35,8 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="3" class="text-right">Total:</td>
-                    <td class="text-right">
+                    <td colspan="4" class="text-right">Total:</td>
+                    <td class="text-center">
                         @Model.TotalShoppingCart.ToString("c")
                     </td>
                 </tr>

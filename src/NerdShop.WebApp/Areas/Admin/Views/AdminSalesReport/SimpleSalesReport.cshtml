@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<NerdShop.WebApp.Models.Order>
 
-<h2>Pedidos Por Período</h2>
+<h2 class="title-home">Pedidos Por Período</h2>
 
 <nav class="navbar navbar-dark">
     <div class="container-fluid">
@@ -15,7 +15,8 @@
                     <input type="date" class="form-control" name="maxDate" value=@ViewData["maxDate"] />
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Filtrar</button>
+            &nbsp;
+            <button type="submit" class="btn cart-button-success">Filtrar</button>
         </form>
     </div>
 </nav>

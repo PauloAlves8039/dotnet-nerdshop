@@ -4,14 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Pedidos</h1>
+<h1 class="title-home">Pedidos</h1>
 
 <form method="get" class="form-inline">
-
-    <input name="filter" class="form-control" placeholder="filtro"
-           value="@Model.RouteValue["Filter"]" />
-
-    <button type="submit" class="btn btn-info">Pesquisar</button>
+    <div class="row">
+        <div class="col-4">
+            <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]" />
+        </div>
+        <div class="col-4">
+            <button type="submit" class="btn cart-button-info">Pesquisar</button>
+        </div>
+    </div>
 </form>
 
 Total de Pedidos : @Model.TotalRecordCount
@@ -22,7 +25,7 @@ Total de Pedidos : @Model.TotalRecordCount
 <p>
     <a asp-action="Create">Criar novo</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-title-font text-center">
     <thead>
         <tr>
             <th>
@@ -61,7 +64,7 @@ Total de Pedidos : @Model.TotalRecordCount
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-content-font">
 @foreach (var item in Model) {
         <tr>
             <td>
