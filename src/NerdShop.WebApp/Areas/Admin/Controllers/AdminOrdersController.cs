@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NerdShop.WebApp.Context;
+using NerdShop.WebApp.Migrations;
 using NerdShop.WebApp.Models;
+using NerdShop.WebApp.ViewModels;
 using ReflectionIT.Mvc.Paging;
 
 namespace NerdShop.WebApp.Areas.Admin.Controllers
@@ -16,6 +18,28 @@ namespace NerdShop.WebApp.Areas.Admin.Controllers
         public AdminOrdersController(NerdShopDbContext nerdShopDbContext)
         {
             _nerdShopDbContext = nerdShopDbContext;
+        }
+
+        public IActionResult ProductOrder(int? id) 
+        {
+            var order = _nerdShopDbContext.Orders
+                         .Include(o => o.OrderItems)
+                         .ThenInclude(p => p.Product)
+                         .FirstOrDefault(p => p.OrderId == id);
+
+            if (order == null)
+            {
+                Response.StatusCode = 404;
+                return View("OrderNotFound", id.Value);
+            }
+
+            var productOrderViewModel = new ProductOrderViewModel() 
+            {
+                Order = order,
+                OrderDetails = order.OrderItems
+            };
+
+            return View(productOrderViewModel);
         }
 
         public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Name")
