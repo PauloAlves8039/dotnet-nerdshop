@@ -6,6 +6,7 @@ using NerdShop.WebApp.Models;
 using Microsoft.AspNetCore.Identity;
 using NerdShop.WebApp.Services;
 using ReflectionIT.Mvc.Paging;
+using NerdShop.WebApp.Areas.Admin.Services;
 
 namespace NerdShop.WebApp
 {
@@ -31,6 +32,7 @@ namespace NerdShop.WebApp
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+            services.AddScoped<ServiceSalesReport>();
 
             services.AddAuthorization(options =>
             {
