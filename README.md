@@ -30,7 +30,9 @@ O [Identity Framework Core](https://learn.microsoft.com/en-us/dotnet/api/microso
 
 O [ReflectionIT Mvc Paging](https://github.com/sonnemaf/ReflectionIT.Mvc.Paging) foi adicionado para a geração de relatórios de acordo com um período de datas, o objetivo é para facilitar o gerencimanto dos pediddos da loja, esse recurso só está disponível apenas para usuários com perfis administrativos. 
 
-o - [Bootstrap](https://getbootstrap.com/) foi usado para melhorar a parte de estilos nas Views, esse recurso já vem adicionando na criação do projeto.
+o [Bootstrap](https://getbootstrap.com/) foi usado para melhorar a parte de estilos nas Views, esse recurso já vem adicionando na criação do projeto.
+
+Os recursos de imagens dos produtos foram inspirados na loja [NerdStore](https://nerdstore.com.br/?gclid=EAIaIQobChMIkubCy6f4_wIVMeVcCh3wBQZPEAAYASAAEgJurfD_BwE).
 
 ## Instruções para downlaod
 
