@@ -2,7 +2,7 @@
 
 ## :computer: Projeto
 
-Repositório com uma aplicação web para simular uma loja virtual fictícia, onde é possível visualizar uma lista de produtos e utilizar um carrinho de compras para a venda ser efetivada.
+Repositório com uma aplicação web para simular uma loja virtual fictícia e seu gerenciamento, onde é possível visualizar uma lista de produtos e utilizar um carrinho de compras para a venda ser efetivada.
 
 ## Decisões Técnicas
 
@@ -86,7 +86,7 @@ Este projeto foi desenvolvido com o [Visual Studio 2022](https://visualstudio.mi
 
 ### Área Administrativa de Relatórios
 
-<p align="center"> <img src="https://github.com/PauloAlves8039/dotnet-nerdshop/blob/master/src/NerdShop.WebApp/wwwroot/images/relatorio-dos-pedidos.png"/></p>
+<p align="center"> <img src="https://github.com/PauloAlves8039/dotnet-nerdshop/blob/master/src/NerdShop.WebApp/wwwroot/images/gerando-relatorio.png"/></p>
 
 ## Author
 
