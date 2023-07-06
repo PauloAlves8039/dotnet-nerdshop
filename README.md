@@ -22,6 +22,7 @@ O Nerdshop possui dois modelos de domínios `Categoria` e `Produto`, assim foi c
 - [ReflectionIT Mvc Paging](https://github.com/sonnemaf/ReflectionIT.Mvc.Paging)
 - [Bootstrap  v5.1.0](https://getbootstrap.com/)
 - [Imagem dos Produtos - NerdStore](https://nerdstore.com.br/?gclid=EAIaIQobChMIkubCy6f4_wIVMeVcCh3wBQZPEAAYASAAEgJurfD_BwE)
+- [Font Awesome  v4.7.0](https://fontawesome.com/v4/icons/)
 
 Foi utilizado o SGBD [SQL Server 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) por ser uma tecnologia da Microsoft e ter recursos que facilitam o gerenciamento das bases de dados, em sequência
 foi usado a ferramenta ORM [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) para realizar a criação e conexão com o banco de dados com a abordagem  [Code First Migrations](https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/), a decisão de uso desta ferramenta foi com o propósito de ganho de tempo em comparação ao uso do [ADO.NET](https://learn.microsoft.com/pt-br/dotnet/framework/data/adonet/ado-net-overview).
@@ -32,7 +33,7 @@ O [ReflectionIT Mvc Paging](https://github.com/sonnemaf/ReflectionIT.Mvc.Paging)
 
 o [Bootstrap](https://getbootstrap.com/) foi usado para melhorar a parte de estilos nas Views, esse recurso já vem adicionando na criação do projeto.
 
-Os recursos de imagens dos produtos foram inspirados na loja [NerdStore](https://nerdstore.com.br/?gclid=EAIaIQobChMIkubCy6f4_wIVMeVcCh3wBQZPEAAYASAAEgJurfD_BwE).
+Os recursos de imagens dos produtos foram inspirados na loja [NerdStore](https://nerdstore.com.br/?gclid=EAIaIQobChMIkubCy6f4_wIVMeVcCh3wBQZPEAAYASAAEgJurfD_BwE), e a adição de ícones foi implementada com o [Font Awesome  v4.7.0](https://fontawesome.com/v4/icons/) para uma melhoria visual.
 
 ## Instruções para downlaod
 
@@ -40,7 +41,7 @@ Os recursos de imagens dos produtos foram inspirados na loja [NerdStore](https:/
 
 `git clone https://github.com/PauloAlves8039/dotnet-nerdshop.git`
 
-`Observação`: é necessário ter o [SQL Server 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) instalado e configurado com alguma ferramenta de acesso as bases de dados.
+`Observação`: no arquivo `appsettings.json` é necessário atualizar a string de conexão, para isso o [SQL Server 2019](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) precisa estar instalado e configurado com alguma ferramenta de acesso as bases de dados. 
 
 Este projeto foi desenvolvido com o [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/downloads/), após clonar o repositório abra o mesmo com essa IDE vá no menu `Tools/NuGet Package Manager/Package Manager Console` para abrir um terminal e em seguida execute o comando `Update-Database` esse procedimento vai gerar o banco de dados com a inserção de alguns registros para as categorias, produtos e usuários.
 
